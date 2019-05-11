@@ -1,0 +1,16 @@
+{
+    "name": "UBot",
+    "version": "1.0.0",
+    "description": "My own Discord bot",
+    "main": "bot.js",
+    "author": "Uni",
+    "dependencies": {
+        "discord.io": "github:woor/discord.io#gateway_v6",
+        "discord.js": "^11.4.2",
+        "enmap": "^4.2.0",
+        "prism-media": "^1.0.1",
+        "safe-buffer": "^5.1.2",
+        "snekfetch": "^4.0.4",
+        "winston": "^3.0.0"
+    }
+}
