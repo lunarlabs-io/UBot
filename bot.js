@@ -3,7 +3,8 @@ const fs = require("fs");
 const Enmap = require("enmap");
 
 const client = new Discord.Client();
-const config = require('./auth.json');
+const config = require('./auth.json')
+
 // We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
 client.config = config;
 
