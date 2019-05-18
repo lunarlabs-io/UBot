@@ -26,12 +26,6 @@ fs.readdir("./commands/", (err, files) => {
     let props = require(`./commands/${file}`);
     let commandName = file.split(".")[0];
     console.log(`Attempting to load command ${commandName}`);
-    const clean = text => {
-      if (typeof(text) === "string")
-        return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-      else
-        return text;
-    }
     client.commands.set(commandName, props);
   });
 });
