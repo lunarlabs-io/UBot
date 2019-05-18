@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
         }});
 
     if (has_ban === true)
-        if (!message.mentions.members.first)
+        if (!mentionedmember)
         return message.channel.send({embed: {
                 color: 3447003,
                 description: "Please mention a valid user!"
