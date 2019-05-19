@@ -10,6 +10,7 @@ exports.run = (client, message, args) => {
         .addField("Server Owner", message.guild.owner)
         .addField("Server Owner ID", message.guild.owner.id)
         .addField("Server was made on", message.guild.createdAt)
+        .addField("Server Region", message.guild.region)
         .addField("You joined on", message.member.joinedAt)
         .addField("Total members of the guild", message.guild.memberCount);
 
