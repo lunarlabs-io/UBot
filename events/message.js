@@ -10,6 +10,13 @@ module.exports = (client, message) => {
 
     // Ignore messages not starting with the prefix (in config.json)
     if (message.content.indexOf(client.config.prefix) !== 0) return;
+    
+    // Ignore all DMs
+    if (message.channel instanceof Discord.DMChannel) return message.channel.send({embed: {
+            color: 3447003,
+            title: ":x:",
+            description: "UBot does not accept DMs! Please go to a server that has UBot to execute commands."
+}});
 
     // Our standard argument/command name definition.
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
