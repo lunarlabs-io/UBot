@@ -37,4 +37,18 @@ exports.run = async (client, message, args) => {
                 title: ":white_check_mark:",
                 description: "User has been banned!",
                 footer: "Command handled by UBot | Command initiated by ${message.author}"
-        }})}}}
+        }});
+        let incidentschannel = message.guild.channels.find(`name`, "incidents");
+        if(!incidentschannel) return message.channel.send("Couldn't find incidents channel.");
+        if (incidentschannel) {
+            let banEmbed = new Discord.RichEmbed()
+                .setDescription("A user has been banned")
+                .setThumbnail(mentionedmember.avatarURL)
+                .setColor("#15f153")
+                .addField("User who was banned", `${mentionedmember} with ID: ${mentionedmember.id}`)
+                .addField("Banned by user", `${message.author} with ID: ${message.author.id}`)
+                .addField("Time the user was banned at", message.createdAt)
+                .addField("Reason of ban", reason);
+                incidentschannel.send(banEmbed);
+        }
+    }}}
