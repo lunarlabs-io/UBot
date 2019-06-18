@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
             description: "Here you will be able to see all the commands and what they do.",
             fields: [{
                 name: "Moderation",
-                value: "u!ban - Lets you ban a user. \n u!kick - lets you kick a user. \n u!report - Report a user."
+                value: "u!ban - Lets you ban a user. \n u!kick - Lets you kick a user. \n u!warn - Lets you warn a user. \n u!report - Report a user."
             },
                 {
                     name: "Misc",
