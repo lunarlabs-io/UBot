@@ -1,8 +1,5 @@
 exports.run = async (client, message, args) => {
     var Discord = require('discord.js');
-    // This command must be limited to mods and admins. In this example we just hardcode the role names.
-    // Please read on Array.some() to understand this bit:
-    // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
     let member = message.author;
     let perms = member.permissions;
 
@@ -35,7 +32,6 @@ exports.run = async (client, message, args) => {
                     description: "Please say a reason for the kick!"
                 }});
 
-        // Now, time for a swift kick in the nuts!
         await mentionedmember.kick(reason)
             .catch(error => message.channel.send({embed: {
                     color: 3447003,
@@ -46,4 +42,17 @@ exports.run = async (client, message, args) => {
                 title: ":white_check_mark:",
                 color: 3447003,
                 description: "User has been kicked!"
-            }})}};
+            }});
+        let incidentschannel = message.guild.channels.find(`name`, "incidents");
+        if(!incidentschannel) return message.channel.send("Couldn't find incidents channel.");
+        if (incidentschannel) {
+            let kickEmbed = new Discord.RichEmbed()
+                .setDescription("A user has been kicked")
+                .setThumbnail(mentionedmember.avatarURL)
+                .setColor("#15f153")
+                .addField("User who was kicked", `${mentionedmember} with ID: ${mentionedmember.id}`)
+                .addField("Kicked by user", `${message.author} with ID: ${message.author.id}`)
+                .addField("Time the user was kicked at", message.createdAt)
+                .addField("Reason of kick", reason);
+            incidentschannel.send(kickEmbed);
+        }}}
