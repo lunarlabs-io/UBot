@@ -33,11 +33,6 @@ exports.run = async (client, message, args) => {
                 }});
 
         await mentionedmember.kick(reason)
-            .catch(error => message.channel.send({embed: {
-                    color: 3447003,
-                    title: ":x:",
-                    description: "I couldn't kick the aforementioned user because of an error!"
-                }}));
         message.channel.send({embed: {
                 title: ":white_check_mark:",
                 color: 3447003,
@@ -54,5 +49,10 @@ exports.run = async (client, message, args) => {
                 .addField("Kicked by user", `${message.author} with ID: ${message.author.id}`)
                 .addField("Time the user was kicked at", message.createdAt)
                 .addField("Reason of kick", reason);
-            incidentschannel.send(kickEmbed);
-        }}}
+            incidentschannel.send(kickEmbed)
+            .catch(error => message.channel.send({embed: {
+                    color: 3447003,
+                    title: ":x:",
+                    description: "I couldn't kick the aforementioned user because of an error!"
+                }}));
+        }}};
