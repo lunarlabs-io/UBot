@@ -5,8 +5,20 @@ exports.run = async (client, message, args) => {
     let perms = msgsender.permissions;
     let member = message.mentions.users.first();
 
+    const serverDefault = {
+        prefix: "u!",
+        modlogChannel: "mod-log",
+        modRole: "Moderator",
+        adminRole: "Administrator",
+        ownerRole: "Owner",
+        welcomeChannel: "welcome",
+        welcomeEn: "false",
+        welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
+      }
+    const guildConf = client.settings.ensure(message.guild.id, serverDefault);
+
     // Check if a member has a specific permission on the guild!
-    let has_ban = message.member.roles.some(role => role.name === "UBot Staff");
+    let has_ban = message.member.roles.some(role => role.name === guildConf.adminRole);
     let mentionedmember = message.mentions.members.first();
 
     if (has_ban === false) return message.channel.send({embed: {
