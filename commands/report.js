@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
   const rreason = args.join(" ").slice(22);
 
   const reportEmbed = new Discord.RichEmbed()
-    .setDescription("Reports")
+    .setDescription("A user was reported!")
     .setThumbnail(info.avatarURL)
     .setColor("#15f153")
     .addField("User who was reported", `${rUser} with ID: ${rUser.id}`)
@@ -23,7 +23,7 @@ exports.run = (client, message, args) => {
     .addField("Time the user was reported at", message.createdAt)
     .addField("Reason of report", rreason);
 
-  const reportschannel = message.guild.channels.find("name", "reports");
+  const reportschannel = message.guild.channels.find("name", guildConf.modlogChannel);
   if (!reportschannel) return message.channel.send("Couldn't find reports channel.");
 
 

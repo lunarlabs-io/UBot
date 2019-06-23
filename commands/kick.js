@@ -38,8 +38,8 @@ exports.run = async (client, message, args) => {
       color: 3447003,
       description: "User has been kicked!"
     }});
-    const incidentschannel = message.guild.channels.find("name", "incidents");
-    if (!incidentschannel) return message.channel.send("Couldn't find incidents channel.");
+    const incidentschannel = message.guild.channels.find("name", guildConf.modlogChannel);
+    if (!incidentschannel) return message.channel.send("Couldn't find mod-log channel.");
     if (incidentschannel) {
       const kickEmbed = new Discord.RichEmbed()
         .setDescription("A user has been kicked")
