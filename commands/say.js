@@ -10,8 +10,20 @@ exports.run = (client, message, args) => {
     let member = message.author;
     let perms = member.permissions;
 
+    const serverDefault = {
+        prefix: "u!",
+        modlogChannel: "mod-log",
+        modRole: "Moderator",
+        adminRole: "Administrator",
+        ownerRole: "Owner",
+        welcomeChannel: "welcome",
+        welcomeEn: "false",
+        welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
+      }
+    const guildConf = client.settings.ensure(message.guild.id, serverDefault);
 
-    let is_staff = message.member.roles.some(role => role.name === "UBot Staff");
+
+    let is_staff = message.member.roles.some(role => role.name === ownerRole);
 
    if (is_staff === false) return message.channel.send({embed: {
             title: ":x:",
