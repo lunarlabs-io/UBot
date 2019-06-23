@@ -2,8 +2,20 @@ exports.run = async (client, message, args) => {
     var Discord = require('discord.js');
     let member = message.author;
     let perms = member.permissions;
+    
+        const serverDefault = {
+        prefix: "u!",
+        modlogChannel: "mod-log",
+        modRole: "Moderator",
+        adminRole: "Administrator",
+        ownerRole: "Owner",
+        welcomeChannel: "welcome",
+        welcomeEn: "false",
+        welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
+      }
+    const guildConf = client.settings.ensure(message.guild.id, serverDefault);
 
-    let has_kick = message.member.roles.some(role => role.name === "UBot Staff");
+    let has_kick = message.member.roles.some(role => role.name === guildConf.modRole);
 
     if (has_kick === false) return message.channel.send({embed: {
             title: ":x:",
