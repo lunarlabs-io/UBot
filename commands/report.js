@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
     .addField("Reason of report", rreason);
 
   const reportschannel = message.guild.channels.find("name", guildConf.modlogChannel);
-  if (!reportschannel) return message.channel.send("Couldn't find reports channel.");
+  if (!reportschannel) return message.channel.send("Couldn't find mod-log channel.");
 
 
   message.delete().catch(()=>{});
