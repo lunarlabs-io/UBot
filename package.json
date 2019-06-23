@@ -5,12 +5,17 @@
     "main": "bot.js",
     "author": "Uni",
     "dependencies": {
+        "better-sqlite-pool": "^0.2.2",
         "discord.io": "github:woor/discord.io#gateway_v6",
         "discord.js": "^11.4.2",
         "enmap": "^4.2.0",
+        "node-gyp": "^5.0.1",
         "prism-media": "^1.0.1",
         "safe-buffer": "^5.1.2",
         "snekfetch": "^4.0.4",
         "winston": "^3.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^6.0.0"
     }
 }
