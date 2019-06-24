@@ -3,11 +3,11 @@ const { Command } = require("discord.js-commando");
 class AwooCommand extends Command {
   constructor(client) {
     super(client, {
-      name: "avatar",
+      name: "awoo",
       aliases: [],
       group: "fun",
-      memberName: "avatar",
-      description: "Look up a users Avatar",
+      memberName: "awoo",
+      description: "DON'T DO THAT, WHATEVER YOU DO!",
       ownerOnly: false,
       guildOnly: false
 
