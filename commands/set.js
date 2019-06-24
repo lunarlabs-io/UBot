@@ -32,11 +32,14 @@ exports.run = async (client, message, args) => {
   if (!client.settings.has(message.guild.id, prop)) {
     return message.reply("This key is not in the configuration.");
   }
-    
+
+  if (!value || !prop) {
+    return message.reply("You did not enter a value")
+  } else {
   // Now we can finally change the value. Here we only have strings for values 
   // so we won't bother trying to make sure it's the right type and such. 
   client.settings.set(message.guild.id, value.join(" "), prop);
     
   // We can confirm everything's done to the client.
   message.channel.send(`Guild configuration item ${prop} has been changed to:\n\`${value.join(" ")}\``);
-};
+}};
