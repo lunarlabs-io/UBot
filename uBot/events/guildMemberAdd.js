@@ -1,4 +1,4 @@
-module.exports = (client, member) => {
+exports.run  = async (client, member) => {
   const serverDefault = {
     prefix: "u!",
     modlogChannel: "mod-log",

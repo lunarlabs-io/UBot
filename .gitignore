@@ -1,3 +1,2 @@
-.idea
-node_modules
-auth.json
+.push.settings.jsonc
+uBot/.env

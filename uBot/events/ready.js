@@ -1,4 +1,4 @@
-module.exports = (client) => {
+exports.run = async (client) => {
   client.user.setPresence({
     game: {
       name: `${client.guilds.size} users in ${client.users.size} servers.`,
