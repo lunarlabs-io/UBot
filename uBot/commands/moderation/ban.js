@@ -69,8 +69,7 @@ class BanCommand extends Command {
         description: "User has been banned!",
         footer: "Command handled by UBot | Command initiated by ${msg.author}"
       }});
-//      const incidentschannel = msg.guild.channels.find("name", guildConf.modlogChannel);
-	const incidentschannel = msg.guild.channels.find("name", "incidents");
+      const incidentschannel = msg.guild.channels.find("name", guildConf.modlogChannel);
       if (!incidentschannel) return msg.channel.send("Couldn't find mod-log channel.");
       if (incidentschannel) {
         const banEmbed = new Discord.RichEmbed()
