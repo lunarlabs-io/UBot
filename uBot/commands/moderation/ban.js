@@ -1,6 +1,6 @@
 
 const { Command } = require("discord.js-commando");
-
+var Discord = require("discord.js");
 class BanCommand extends Command {
   constructor(client) {
     super (client, {
@@ -26,7 +26,7 @@ class BanCommand extends Command {
     });
   }
   async run(msg, { member, reason }) {
-    var Discord = require("discord.js");
+    
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     //   const msgsender = message.author;
     //   const perms = msgsender.permissions;

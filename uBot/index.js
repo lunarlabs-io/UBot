@@ -15,31 +15,6 @@ var client = new Client({
   disabledEvents: ["TYPING_START", "TYPING_STOP"]
 });
 client.login(process.env.TOKEN);
-const Enmap = require("enmap");
-
-// I attach settings to client to allow for modular bot setups
-// In this example we'll leverage fetchAll:false and autoFetch:true for
-// best efficiency in memory usage. We also have to use cloneLevel:'deep'
-// to avoid our values to be "reference" to the default settings.
-// The explanation for why is complex - just go with it.
-client.settings = new Enmap({
-  name: "settings",
-  fetchAll: false,
-  autoFetch: true,
-  cloneLevel: "deep"
-});
-// Just setting up a default configuration object here, to have somethign to insert.
-// eslint-disable-next-line no-unused-vars
-const serverDefault = {
-  prefix: "u!",
-  modlogChannel: "mod-log",
-  modRole: "Moderator",
-  adminRole: "Administrator",
-  ownerRole: "Owner",
-  welcomeChannel: "welcome",
-  welcomeEn: "false",
-  welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
-};
 client.registry.registerGroups([
   ["moderation", "Moderation"],
   ["fun", "Funny"],

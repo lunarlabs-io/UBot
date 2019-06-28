@@ -1,6 +1,6 @@
 
 const { Command } = require("discord.js-commando");
-
+var Discord = require("discord.js");
 class KickCommand extends Command {
   constructor(client) {
     super (client, {
@@ -26,7 +26,7 @@ class KickCommand extends Command {
     });
   }
   async run(msg, { member, reason }) {
-    var Discord = require("discord.js");
+   
  
     //const guildConf = this.client.settings.get(msg.guild.id);
 
