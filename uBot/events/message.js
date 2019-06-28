@@ -3,6 +3,18 @@ exports.run = async (msg) => {
   // Ignore all bots
   if (msg.author.bot) return;
 
+    const serverDefault = {
+        prefix: "u!",
+        modlogChannel: "mod-log",
+        modRole: "Moderator",
+        adminRole: "Administrator",
+        ownerRole: "Owner",
+        welcomeChannel: "welcome",
+        welcomeEn: "false",
+        welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
+      }
+ const guildConf = this.client.settings.ensure(msg.guild.id, serverDefault);
+
   // eslint-disable-next-line no-unused-vars
   // Ignore messages not starting with the prefix (in config.json)
   if (msg.content.startsWith("<@"+ msg.client.user.id +">") && !msg.content.split(" ").slice(1).join(" ")) {

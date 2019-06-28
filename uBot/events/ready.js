@@ -1,7 +1,7 @@
 exports.run = async (client) => {
   client.user.setPresence({
     game: {
-      name: `${client.guilds.size} users in ${client.users.size} servers.`,
+      name: `${client.users.size} users in ${client.guilds.size} servers.`,
       type: "WATCHING"
     },
     status: "online"

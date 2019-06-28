@@ -6,11 +6,11 @@ class ServerInfoCommand extends Command {
     super (client, {
       name: "sinfo",
       aliases: [],
-      group: "fun",
+      group: "misc",
       memberName: "sinfo",
       description: "Look up the servers info",
       ownerOnly: false,
-      guildOnly: false
+      guildOnly: true
       
     });
   }

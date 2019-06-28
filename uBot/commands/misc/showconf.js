@@ -23,7 +23,7 @@ class ShowConfCommand extends Command {
       welcomeEn: "false",
       welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
     };
-    const guildConf = msg.client.settings.ensure(msg.guild.id, serverDefault);
+    const guildConf = this.client.settings.ensure(msg.guild.id, serverDefault);
     const configProps = Object.keys(guildConf).map(prop => {
       return `${prop}  :  ${guildConf[prop]}\n`;
     });

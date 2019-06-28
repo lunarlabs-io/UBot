@@ -35,11 +35,11 @@ module.exports = class HelpCommand extends Command {
     if (!args.command || args.command === "") {
       var cmdArray = msg.client.registry.commands.array();
       var embed = new RichEmbed ()
-        .setTitle("Lunar Help")
+        .setTitle("UBot Help")
         .setAuthor(msg.client.user.username, msg.client.user.avatarURL)
         .setFooter("React on 📖 to see more commands or 🐱 to... just, don't react!", msg.author.avatarURL)
         .setColor("RANDOM")
-        .setDescription("Heya! I'm Lunar, a kawaii bot for helping you with your server and making fun of users some times.\n**I have "+ msg.client.registry.commands.size +" commands (and counting!)**\nFor help with a command, use help commandName");
+        .setDescription("Heya! I'm UBot, a multipurpose bot.\n**I have "+ msg.client.registry.commands.size +" commands (and counting!)**\nFor help with a command, use help commandName");
       var toShow = [];
       var removedcmds = [];
       while (cmdArray.length > 50) {

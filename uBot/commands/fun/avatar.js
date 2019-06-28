@@ -18,10 +18,10 @@ class AvatarCommand extends Command {
     const member = msg.mentions.users.first();
     if (member) {
       const embed = new Discord.RichEmbed()
-        .setImage(msg.avatarURL)
+        .setImage(member.avatarURL)
         .setColor("#000FFF")
       // eslint-disable-next-line max-len
-        .addField("Here is the mentioned user's profile picture,", msg.member)
+        .addField("Here is the mentioned user's profile picture,", member)
         .setFooter("Command handled by UBot");
       msg.channel.send(embed);
     }

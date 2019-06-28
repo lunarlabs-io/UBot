@@ -1,12 +1,12 @@
 const { Command } = require("discord.js-commando");
-class AwooCommand extends Command {
+class YiffCommand extends Command {
   constructor(client) {
     super(client, {
-      name: "avatar",
-      aliases: [],
+      name: "yiff",
+      aliases: ['e621'],
       group: "fun",
-      memberName: "avatar",
-      description: "Look up a users Avatar",
+      memberName: "yiff",
+      description: "Coming soon...",
       ownerOnly: false,
       guildOnly: false
 
@@ -22,4 +22,4 @@ class AwooCommand extends Command {
     });
   }
 }
-module.exports = AwooCommand;
+module.exports = YiffCommand;

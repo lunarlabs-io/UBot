@@ -5,10 +5,10 @@ const exec = require("child_process").exec;
 class ExecCommand extends Command {
   constructor(client) {
     super (client, {
-      name: "eval",
+      name: "exec",
       aliases: ["bash"],
       group: "misc",
-      memberName: "eval",
+      memberName: "exec",
       description: "Run something on terminal",
       ownerOnly: true,
       guildOnly: false,

@@ -12,8 +12,9 @@ class SayCommand extends Command {
         duration: 5
       },
       description: "Make me say something",
+      userPermissions: ['ADMINISTRATOR'],
       examples: ["say I'm kawaii!", "say Hey, master!", "say Hello World"],
-      guildOnly: false,
+      guildOnly: true,
       args: [{
         key: "text",
         label: "text",
