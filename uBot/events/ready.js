@@ -2,7 +2,7 @@ exports.run = async (client) => {
   client.user.setPresence({
     game: {
       name: `${client.users.size} users in ${client.guilds.size} servers.`,
-      type: "WATCHING"
+      type: "STREAMING"
     },
     status: "online"
   });

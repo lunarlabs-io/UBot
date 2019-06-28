@@ -1,3 +1,3 @@
-exports.run = async (client, guild) => {
-    client.settings.delete(guild.id);
-}
+exports.run = async (guild) => {
+  console.log(`uBot has left ${guild.name}` );
+};

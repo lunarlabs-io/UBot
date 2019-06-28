@@ -7,12 +7,12 @@ exports.run  = async (guild, member) => {
   //   .send(welcomeMessage)
   // // eslint-disable-next-line no-console
   //   .catch(console.error);
-  console.log("[" + guild.name + "][JOIN] " + member.username + "#" + member.discriminator);
+  console.log("[" + guild.name + "][LEAVE] " + member.username + "#" + member.discriminator);
 
   //post in the guild's log channel
   var log = guild.channels.find(c => c.name === "ubot-logs");
   if (log != null) {
-    log.send("**[Joined]** " + member);
+    log.send("**[LEAVE]** " + member);
   }
 
 };
