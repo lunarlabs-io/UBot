@@ -1,6 +1,5 @@
 
 const { Command } = require("discord.js-commando");
-const { RichEmbed } = require("discord.js");
 
 class KickCommand extends Command {
   constructor(client) {
@@ -10,7 +9,7 @@ class KickCommand extends Command {
       group: "moderation",
       memberName: "kick",
       description: "Kick a user from the guild.",
-      userPermissions: ['KICK_MEMBERS'],
+      userPermissions: ["KICK_MEMBERS"],
       guildOnly: true,
       args: [{
         key: "member",
@@ -27,11 +26,11 @@ class KickCommand extends Command {
     });
   }
   async run(msg, { member, reason }) {
-  var Discord = require("discord.js");
+    var Discord = require("discord.js");
  
-  const guildConf = this.client.settings.get(msg.guild.id);
+    //const guildConf = this.client.settings.get(msg.guild.id);
 
-/*  const has_kick = message.member.roles.some(role => role.name === guildConf.modRole);
+    /*  const has_kick = message.member.roles.some(role => role.name === guildConf.modRole);
 
   if (has_kick === false) return message.channel.send({embed: {
     title: ":x:",
@@ -52,8 +51,8 @@ class KickCommand extends Command {
       }});
 */
     // slice(1) removes the first part, which here should be the user mention!
-//    const reason = args.slice(1).join(" ");
-/*    if (!reason)
+    //    const reason = args.slice(1).join(" ");
+    /*    if (!reason)
       return message.channel.send({embed: {
         title: ":information_source:",
         color: 3447003,
@@ -66,8 +65,8 @@ class KickCommand extends Command {
       color: 3447003,
       description: "User has been kicked!"
     }});
-    const incidentschannel = msg.guild.channels.find("name", guildConf.modlogChannel);
-    if (!incidentschannel) return msg.channel.send("Couldn't find mod-log channel.");
+    const incidentschannel = msg.guild.channels.find(c => c.name === "ubot-logs");
+    if (!incidentschannel) return msg.channel.send("Couldn't find ubot-logs channel.");
     if (incidentschannel) {
       const kickEmbed = new Discord.RichEmbed()
         .setDescription("A user has been kicked")
@@ -83,5 +82,5 @@ class KickCommand extends Command {
           title: ":x:",
           description: "I couldn't kick the aforementioned user because of an error!"
         }}));
-    }}};
+    }}}
 module.exports = KickCommand;

@@ -13,17 +13,17 @@ class ShowConfCommand extends Command {
     });
   }
   async run(msg) {
-    const serverDefault = {
-      prefix: "u!",
-      modlogChannel: "mod-log",
-      modRole: "Moderator",
-      adminRole: "Administrator",
-      ownerRole: "Owner",
-      welcomeChannel: "welcome",
-      welcomeEn: "false",
-      welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
-    };
-    const guildConf = this.client.settings.ensure(msg.guild.id, serverDefault);
+    // const serverDefault = {
+    //   prefix: "u!",
+    //   modlogChannel: "mod-log",
+    //   modRole: "Moderator",
+    //   adminRole: "Administrator",
+    //   ownerRole: "Owner",
+    //   welcomeChannel: "welcome",
+    //   welcomeEn: "false",
+    //   welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
+    // };
+    const guildConf = this.client.settings.get(msg.guild.id);
     const configProps = Object.keys(guildConf).map(prop => {
       return `${prop}  :  ${guildConf[prop]}\n`;
     });

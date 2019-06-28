@@ -12,13 +12,13 @@ class SayCommand extends Command {
         duration: 5
       },
       description: "Make me say something",
-      userPermissions: ['ADMINISTRATOR'],
+      userPermissions: ["ADMINISTRATOR"],
       examples: ["say I'm kawaii!", "say Hey, master!", "say Hello World"],
       guildOnly: true,
       args: [{
         key: "text",
         label: "text",
-        prompt: "Please enter what i should say!",
+        prompt: "Please enter what I should say!",
         type: "string"
       }]
     });

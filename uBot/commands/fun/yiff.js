@@ -3,7 +3,7 @@ class YiffCommand extends Command {
   constructor(client) {
     super(client, {
       name: "yiff",
-      aliases: ['e621'],
+      aliases: ["e621"],
       group: "fun",
       memberName: "yiff",
       description: "Coming soon...",

@@ -7,7 +7,7 @@ class SetCommand extends Command {
       group: "misc",
       memberName: "set",
       description: "Set the guild configuration.",
-      userPermissions: ['ADMINISTRATOR'],
+      userPermissions: ["ADMINISTRATOR"],
       ownerOnly: false,
       guildOnly: true,
       args:[{
@@ -18,17 +18,17 @@ class SetCommand extends Command {
     });
   }
   async run(msg, {text}) {
-    const serverDefault = {
-      prefix: "u!",
-      modlogChannel: "mod-log",
-      modRole: "Moderator",
-      adminRole: "Administrator",
-      ownerRole: "Owner",
-      welcomeChannel: "welcome",
-      welcomeEn: "false",
-      welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
-    };
-    const guildConf = this.client.settings.ensure(msg.guild.id, serverDefault);
+    // const serverDefault = {
+    //   prefix: "u!",
+    //   modlogChannel: "mod-log",
+    //   modRole: "Moderator",
+    //   adminRole: "Administrator",
+    //   ownerRole: "Owner",
+    //   welcomeChannel: "welcome",
+    //   welcomeEn: "false",
+    //   welcomeMessage: "Welcome to the server {{user}}, We hope you enjoy your stay here!"
+    // };
+    const guildConf = this.client.settings.get(msg.guild.id);
     // Command is admin only, let's grab the admin value: 
     const adminRole = msg.guild.roles.find("name", guildConf.adminRole);
     if (!adminRole) return msg.reply("Administrator Role Not Found");

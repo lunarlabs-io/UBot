@@ -15,7 +15,7 @@ class AvatarCommand extends Command {
     });
   }
   async run(msg) {
-    const member = msg.mentions.users.first();
+    const member = msg.mentions.users.first() || msg.author;
     if (member) {
       const embed = new Discord.RichEmbed()
         .setImage(member.avatarURL)
@@ -23,14 +23,6 @@ class AvatarCommand extends Command {
       // eslint-disable-next-line max-len
         .addField("Here is the mentioned user's profile picture,", member)
         .setFooter("Command handled by UBot");
-      msg.channel.send(embed);
-    }
-    if (!member) {
-      const embed = new Discord.RichEmbed()
-        .setImage(msg.author.avatarURL)
-        .setColor("#000FFF")
-        .addField("Here is your profile picture", msg.author)
-        .setFooter("Command handled by UBot.");
       msg.channel.send(embed);
     }
   }
