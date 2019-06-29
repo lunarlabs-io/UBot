@@ -9,8 +9,8 @@ exports.run = async (oldMessage, newMessage) => {
     //post in the guild's log channel
     var log = newMessage.guild.channels.find(c => c.name === "ubot-logs");
     if (log != null)
-      log.sendMessage("**[Message Updated]** *" + newMessage.author + "*:\n*Old Message*: " + oldMessage.content +
-                "\n*New Message*: " + newMessage.content);
+      log.sendMessage("**[Message Updated]** *" + newMessage.author.username + "#" + newMessage.author.discriminator + "*:\n*Old Message*: " + oldMessage.content +
+                "\n*New Message*: " + newMessage.content + "\n" + "\n*User ID*: " + newMessage.author.id + "\n" + "\n*Message ID*: " + newMessage.id);
   }
 
   function formatConsoleMessage(newMessage) {
@@ -18,4 +18,3 @@ exports.run = async (oldMessage, newMessage) => {
     return newMessage.content.replace(new RegExp("\n", "g"), "\n\t");
   }
 };
-  
