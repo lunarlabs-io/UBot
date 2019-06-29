@@ -8,6 +8,10 @@ class KickCommand extends Command {
       aliases: ["boot"],
       group: "moderation",
       memberName: "kick",
+      throttling: {
+        usages: 2,
+        duration: 10
+      },
       description: "Kick a user from the guild.",
       userPermissions: ["KICK_MEMBERS"],
       guildOnly: true,

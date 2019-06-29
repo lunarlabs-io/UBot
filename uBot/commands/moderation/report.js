@@ -8,6 +8,10 @@ class ReportCommand extends Command {
       aliases: ["tellmods"],
       group: "moderation",
       memberName: "report",
+      throttling: {
+        usages: 2,
+        duration: 10
+      },
       description: "Report a user in the guild.",
       guildOnly: true,
       args: [{

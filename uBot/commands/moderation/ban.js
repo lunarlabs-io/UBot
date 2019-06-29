@@ -8,6 +8,10 @@ class BanCommand extends Command {
       aliases: ["userbegone"],
       group: "moderation",
       memberName: "ban",
+      throttling: {
+        usages: 2,
+        duration: 10
+      },
       description: "Ban a user from the guild.",
       userPermissions: ["BAN_MEMBERS"],
       guildOnly: true,

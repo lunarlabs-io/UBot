@@ -7,6 +7,10 @@ class PurgeCommand extends Command {
       aliases: ["msgclean"],
       group: "misc",
       memberName: "purge",
+      throttling: {
+        usages: 2,
+        duration: 10
+      },
       userPermissions: ["MANAGE_MESSAGES"],
       description: "purge messages",
       guildOnly: true
