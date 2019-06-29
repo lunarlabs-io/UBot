@@ -24,11 +24,41 @@ class ExecCommand extends Command {
     var message = await msg.channel.send("Running... Keep calm and wait.");
     exec(text, (error, stdout, stderr) => {
       if (error || stderr) {
-        if (stderr.length > 1980) return console.log(stderr), message.edit("Error! The error message is too big, so check your console.");
-        message.edit("Error!\n```"+ stderr +"```");
+        if (stderr.length > 1980) return console.log(stderr), message.edit(
+          {
+            embed: {
+              title: ":warning: Warning",
+              color: 3447003,
+              description: "Success! The error message is too big, so check your console.",
+              footer: {
+                text: "Initiated by " + msg.author.username + "#" + msg.author.discriminator + " | Command handled by UBot"
+              }
+            }
+          });
+        message.edit(
+          {
+            embed: {
+              title: ":x: Error",
+              color: 3447003,
+              description: "\n```"+ stderr +"```",
+              footer: {
+                text: "Initiated by " + msg.author.username + "#" + msg.author.discriminator + " | Command handled by UBot"
+              }
+            }
+          });
       } else {
         if (stdout.length > 1980) return console.log(stdout), message.edit("Success! The result is too big, so check your console.");
-        message.edit("Success!\n```"+ stdout +"```");
+        message.edit(
+          {
+            embed: {
+              title: ":white_check_mark: Success",
+              color: 3447003,
+              description: "\n```"+ stdout +"```",
+              footer: {
+                text: "Initiated by " + msg.author.username + "#" + msg.author.discriminator + " | Command handled by UBot"
+              }
+            }
+          });
       }
     });
   }
