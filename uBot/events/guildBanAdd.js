@@ -12,7 +12,11 @@ exports.run  = async (guild, member) => {
   //post in the guild's log channel
   var log = guild.channels.find(c => c.name === "ubot-logs");
   if (log != null) {
-    log.send("**[BANNED]** " + member);
+    log.send({embed: {
+      title: ":information_source: | New banned user",
+      color: 3447003,
+      description: member+ " has been banned"
+    }});
   }
   
 };
