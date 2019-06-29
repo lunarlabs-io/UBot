@@ -8,7 +8,7 @@ exports.run = async (msg) => {
   //post in the guild's log channel
   var log = msg.guild.channels.find(c => c.name === "ubot-logs");
   if (log != null)
-    log.send("**[Message Deleted]** " + msg.author + ": " + msg.content);
+    log.send("**[Message Deleted]** " + msg.author.username + "#" + msg.author.discriminator + ": " + msg.content + "\n" + "\n*User ID*: " + msg.author.id + "\n*Message ID*: " + msg.id);
   function formatConsoleMessage(msg) {
     // eslint-disable-next-line no-control-regex
     return msg.content.replace(new RegExp("\n", "g"), "\n\t");
