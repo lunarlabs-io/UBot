@@ -11,7 +11,7 @@ exports.run = async (msg) => {
     log.send({embed: {
       title: ":information_source: | Message by " + msg.author.username + "#" + msg.author.discriminator + " has been deleted",
       color: 3447003,
-      description: "Message: " + msg.content + "\n" + "\n" + "Channel: " + "#" + msg.channel.name + " with ID: " + msg.channel.id + "\n*User ID*: " + msg.author.id + "\n*Message ID*: " + msg.id
+      description: "Message: " + msg.content + "\n" + "\n" + "*Channel*: " + "#" + msg.channel.name + " *with ID*: " + msg.channel.id + "\n*User ID*: " + msg.author.id + "\n*Message ID*: " + msg.id
     }});
   function formatConsoleMessage(msg) {
     // eslint-disable-next-line no-control-regex

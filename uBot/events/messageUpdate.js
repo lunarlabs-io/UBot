@@ -12,7 +12,7 @@ exports.run = async (oldMessage, newMessage) => {
       log.send({embed: {
         title: ":information_source: | Message by " + newMessage.author.username + "#" + newMessage.author.discriminator + " has been edited",
         color: 3447003,
-        description: "\n*Old Message*: " + oldMessage.content + "\n*New Message*: " + newMessage.content + "\n" + "\n" + "Channel: " + "#" + newMessage.channel.name + " with ID: " + newMessage.channel.id + "\n*User ID*: " + newMessage.author.id + "\n*Message ID*: " + newMessage.id
+        description: "\n*Old Message*: " + oldMessage.content + "\n*New Message*: " + newMessage.content + "\n" + "\n" + "*Channel*: " + "#" + newMessage.channel.name + " with ID: " + newMessage.channel.id + "\n*User ID*: " + newMessage.author.id + "\n*Message ID*: " + newMessage.id
       }});
   }
   function formatConsoleMessage(newMessage) {
