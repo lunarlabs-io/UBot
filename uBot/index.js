@@ -1,10 +1,9 @@
 /* eslint-disable linebreak-style */
-const { Client, SQLiteProvider } = require("discord.js-commando");
+const { Client } = require("discord.js-commando");
 const path = require("path");
 var { readdir } = require("fs");
 console.log("Loading .env file for token");
 require("dotenv").config({path:"./.env"});
-const sqlite = require("sqlite");
 console.log("Loading uBot client...");
 var client = new Client({
   owner: "251788826232619008",
@@ -28,9 +27,6 @@ client.registry.registerGroups([
   .registerDefaultCommands({"help": false})
   .registerCommandsIn(path.join(__dirname, "commands"));
 console.log ("loading SQLITE database");
-sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
-  client.setProvider(new SQLiteProvider(db));
-});
 console.log("loading events");
 readdir("./events", function(e, files) {
   files.forEach(event => {
