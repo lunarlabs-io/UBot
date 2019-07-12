@@ -1,0 +1,26 @@
+{
+    "name": "ubot",
+    "version": "1.0.0",
+    "description": "My own Discord bot",
+    "start": "cd uBot && pm2 start index.js --name 'uBot'",
+    "test": "cd uBot && npm start index.js",
+    "author": "Uni",
+    "dependencies": {
+        "better-sqlite-pool": "^0.2.2",
+        "discord.io": "github:woor/discord.io#gateway_v6",
+        "discord.js": "^11.5.1",
+        "discord.js-commando": "^0.10.0",
+        "dotenv": "^8.0.0",
+        "enmap": "^4.8.7",
+        "node-gyp": "^5.0.1",
+        "prism-media": "^1.0.1",
+        "safe-buffer": "^5.1.2",
+        "snekfetch": "^4.0.4",
+        "sqlite": "^3.0.3",
+        "winston": "^3.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^6.0.0",
+        "eslint-config-google": "^0.13.0"
+    }
+}

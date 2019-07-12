@@ -26,39 +26,8 @@ class BanCommand extends Command {
     });
   }
   async run(msg, { member, reason }) {
-    
-    // Most of this command is identical to kick, except that here we'll only let admins do it.
-    //   const msgsender = message.author;
-    //   const perms = msgsender.permissions;
-    //   const member = message.mentions.users.first();
-
-  
-    //  const guildConf = this.client.settings.get(msg.guild.id);
-
-    // Check if a member has a specific permission on the guild!
-    //  const has_ban = msg.member.roles.some(role => role.name === guildConf.adminRole);
-    //  const mentionedmember = msg.mentions.members.first();
-
-    /*  if (has_ban === false) return msg.channel.send({embed: {
-    title: ":x:",
-    color: 3447003,
-    description: "Sorry, you don't have permission to use this!"
-  }}); */
-
-    //  if (has_ban === true)
-    /*    if (!mentionedmember)
-      return msg.channel.send({embed: {
-        title: ":information_source:",
-        color: 3447003,
-        description: "Please mention a valid user!"
-      }}); */
+    let executeor = 
     if (member.bannable) {
-      /*    const reason = args.reason.slice(1).join(" ");
-    if (!reason)
-      return msg.channel.send({embed: {
-        color: 3447003,
-        description: "Please indicate a reason for the ban!"
-      }}); */
       if (member) {
         await member.ban(reason)
           .catch(error => msg.reply(`Sorry ${msg.author} I couldn't ban because of : ${error}`));
