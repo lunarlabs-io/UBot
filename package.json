@@ -2,8 +2,10 @@
     "name": "ubot",
     "version": "1.0.0",
     "description": "My own Discord bot",
-    "start": "cd uBot && pm2 start index.js --name 'uBot'",
-    "test": "cd uBot && npm start index.js",
+    "scripts": {
+        "start": "cd uBot && pm2 start index.js --name 'uBot'",
+        "test": "cd uBot && node index.js"
+    },
     "author": "Uni",
     "dependencies": {
         "better-sqlite-pool": "^0.2.2",
@@ -14,6 +16,7 @@
         "enmap": "^4.8.7",
         "node-gyp": "^5.0.1",
         "prism-media": "^1.0.1",
+        "rethinkdbdash": "^2.3.31",
         "safe-buffer": "^5.1.2",
         "snekfetch": "^4.0.4",
         "sqlite": "^3.0.3",

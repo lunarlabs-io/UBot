@@ -26,7 +26,11 @@ class BanCommand extends Command {
     });
   }
   async run(msg, { member, reason }) {
-    let executeor = 
+    let executo = msg.author.id;
+    let execut = msg.guild.members.get(executo);
+    let highrolea = execut.highestRole.position;
+    let highrolem = member.highestRole.position;
+    if (highrolea < highrolem) return msg.reply("You Are Trying To Ban Someone with a Higher Role");
     if (member.bannable) {
       if (member) {
         await member.ban(reason)
