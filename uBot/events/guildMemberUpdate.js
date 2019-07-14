@@ -1,4 +1,5 @@
-exports.run = async (guild, oldMember, newMember) => {
+exports.run = async (oldMember, newMember) => {
+  var guild = oldMember.guild;
   //declare changes
   var Changes = {
     unknown: 0,
@@ -13,8 +14,8 @@ exports.run = async (guild, oldMember, newMember) => {
   //check if roles were removed
   var removedRole = "";
   oldMember.roles.every(function(value) {
+    change = removedRole;
     if (newMember.roles.find("id", value.id) == null) {
-      change = Changes.removedRole;
       removedRole = value.name;
     }
   });
@@ -22,8 +23,8 @@ exports.run = async (guild, oldMember, newMember) => {
   //check if roles were added
   var addedRole = "";
   newMember.roles.every(function(value) {
+    change = Changes.addedRole;
     if (oldMember.roles.find("id", value.id) == null) {
-      change = Changes.addedRole;
       addedRole = value.name;
     }
   });
@@ -73,24 +74,42 @@ exports.run = async (guild, oldMember, newMember) => {
   if (log != null) {
     switch (change) {
       case Changes.unknown:
-        log.send("**[User Update]** " + newMember);
+        log.send({embed: {
+            title: ":information_source: | User update",
+            color: 3447003,
+            description: newMember.user.username + "#" + newMember.user.discriminator
+          }});
         break;
       case Changes.addedRole:
-        log.send("**[User Role Added]** " + newMember + ": " + addedRole);
+        return
+ //       log.send({embed: {
+ //           title: ":information_source: | Role added to user",
+ //           color: 3447003,
+ //           description: oldMember+ " now has the role " + addedRole
+ //         }});
         break;
       case Changes.removedRole:
-        log.send("**[User Role Removed]** " + newMember + ": " + removedRole);
+        return
+ //       log.send({embed: {
+ //           title: ":information_source: | Role removed from user",
+ //           color: 3447003,
+ //           description: oldMember+ " no longer has the role " + removedRole
+ //         }});
         break;
       case Changes.username:
-        log.send("**[User Username Changed]** " + newMember + ": Username changed from " +
-                    oldMember.user.username + "#" + oldMember.user.discriminator + " to " +
-                    newMember.user.username + "#" + newMember.user.discriminator);
+        log.send({embed: {
+            title: ":information_source: | User username changed",
+            color: 3447003,
+            description: oldMember+ " changed their username from " +oldMember.username + "to " + newMember.username
+          }});
         break;
       case Changes.nickname:
-        log.send("**[User Nickname Changed]** " + newMember + ": " +
-                    (oldMember.nickname != null ? "Changed nickname from " + oldMember.nickname +
-                        + newMember.nickname : "Set nickname") + " to " +
-                    (newMember.nickname != null ? newMember.nickname + "." : "original username."));
+        if (newMember.nickname != null || oldMember.nickname != null) {
+        log.send({embed: {
+            title: ":information_source: | User nickname changed",
+            color: 3447003,
+            description: oldMember+ " changed their nickname from " +oldMember.nickname + " to " + newMember.nickname + "."
+          }})};
         break;
       case Changes.avatar:
         log.send("**[User Avatar Changed]** " + newMember);
@@ -98,4 +117,3 @@ exports.run = async (guild, oldMember, newMember) => {
     }
   }
 }
-  
