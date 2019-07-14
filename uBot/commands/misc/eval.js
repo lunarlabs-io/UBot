@@ -29,7 +29,7 @@ class ExecCommand extends Command {
             embed: {
               title: ":warning: Warning",
               color: 3447003,
-              description: "Success! The error message is too big, so check your console.",
+              description: "The error message is too big, so check your console.",
               footer: {
                 text: "Initiated by " + msg.author.username + "#" + msg.author.discriminator + " | Command handled by UBot"
               }
