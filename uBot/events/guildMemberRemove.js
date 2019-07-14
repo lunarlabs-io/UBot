@@ -1,4 +1,5 @@
-exports.run  = async (guild, member) => {
+exports.run  = async (member) => {
+  var guild = member.guild
 
   // let welcomeMessage = client.settings.get(member.guild.id, "welcomeMessage");
   // welcomeMessage = welcomeMessage.replace("{{user}}", member.user.tag);
@@ -7,12 +8,16 @@ exports.run  = async (guild, member) => {
   //   .send(welcomeMessage)
   // // eslint-disable-next-line no-console
   //   .catch(console.error);
-  console.log("[" + guild.name + "][LEAVE] " + member.username + "#" + member.discriminator);
+  console.log("[" + member.guild.name + "][LEAVE] " + member.user.username + "#" + member.user.discriminator);
 
   //post in the guild's log channel
-  var log = guild.channels.find(c => c.name === "ubot-logs");
+  var log = member.guild.channels.find(c => c.name === "ubot-logs");
   if (log != null) {
-    log.send("**[LEAVE]** " + member);
+    log.send({embed: {
+        title: ":information_source: | User left",
+        color: 3447003,
+        description: member+ " has left the guild"
+      }});
   }
+};
 
-}
