@@ -97,5 +97,5 @@ exports.run = async (guild, oldMember, newMember) => {
         break;
     }
   }
-};
+}
   

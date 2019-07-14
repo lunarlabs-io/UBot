@@ -28,6 +28,11 @@ class WarnCommand extends Command {
   async run(msg, { member, reason}) {
     if (member) {    
       if (member || reason) {
+        let executo = msg.author.id;
+        let execut = msg.guild.members.get(executo);
+        let highrolea = execut.highestRole.position;
+        let highrolem = member.highestRole.position;
+        if (highrolea < highrolem) return msg.reply("You can't warn someone with a higher role than yours...");
         const warnembed = new Discord.RichEmbed()
           .setDescription("You have been warned!")
           .setThumbnail(member.avatarURL)

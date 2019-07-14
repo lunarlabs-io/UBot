@@ -15,4 +15,4 @@ exports.run  = async (guild, member) => {
     log.send("**[LEAVE]** " + member);
   }
 
-};
+}
