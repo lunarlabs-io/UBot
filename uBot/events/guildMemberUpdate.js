@@ -14,8 +14,8 @@ exports.run = async (oldMember, newMember) => {
   //check if roles were removed
   var removedRole = "";
   oldMember.roles.every(function(value) {
-    change = removedRole;
     if (newMember.roles.find("id", value.id) == null) {
+      change = Changes.removedRole;
       removedRole = value.name;
     }
   });
@@ -23,8 +23,8 @@ exports.run = async (oldMember, newMember) => {
   //check if roles were added
   var addedRole = "";
   newMember.roles.every(function(value) {
-    change = Changes.addedRole;
     if (oldMember.roles.find("id", value.id) == null) {
+      change = Changes.addedRole;
       addedRole = value.name;
     }
   });
@@ -77,30 +77,28 @@ exports.run = async (oldMember, newMember) => {
         log.send({embed: {
             title: ":information_source: | User update",
             color: 3447003,
-            description: newMember.user.username + "#" + newMember.user.discriminator
+            description: newMember.user.username + "#" + newMember.user.discriminator + "\n" + "\n *User ID*: " + member.id
           }});
         break;
       case Changes.addedRole:
-        return
- //       log.send({embed: {
- //           title: ":information_source: | Role added to user",
- //           color: 3447003,
- //           description: oldMember+ " now has the role " + addedRole
- //         }});
+        log.send({embed: {
+            title: ":information_source: | Role added to user",
+            color: 3447003,
+            description: oldMember+ " now has the role " + addedRole + "\n" + "\n *User ID*: " + oldMember.user.id
+          }});
         break;
       case Changes.removedRole:
-        return
- //       log.send({embed: {
- //           title: ":information_source: | Role removed from user",
- //           color: 3447003,
- //           description: oldMember+ " no longer has the role " + removedRole
- //         }});
+        log.send({embed: {
+            title: ":information_source: | Role removed from user",
+            color: 3447003,
+            description: oldMember+ " no longer has the role " + removedRole + "\n" + "\n *User ID*: " + oldMember.user.id
+          }});
         break;
       case Changes.username:
         log.send({embed: {
             title: ":information_source: | User username changed",
             color: 3447003,
-            description: oldMember+ " changed their username from " +oldMember.username + "to " + newMember.username
+            description: oldMember+ " changed their username from " +oldMember.username + "to " + newMember.username + "\n" + "\n *User ID*: " + oldMember.user.id
           }});
         break;
       case Changes.nickname:
@@ -108,11 +106,15 @@ exports.run = async (oldMember, newMember) => {
         log.send({embed: {
             title: ":information_source: | User nickname changed",
             color: 3447003,
-            description: oldMember+ " changed their nickname from " +oldMember.nickname + " to " + newMember.nickname + "."
+            description: oldMember+ " changed their nickname from " +oldMember.nickname + " to " + newMember.nickname + "." + "\n" + "\n *User ID*: " + oldMember.user.id
           }})};
         break;
       case Changes.avatar:
-        log.send("**[User Avatar Changed]** " + newMember);
+        log.send({embed: {
+            title: ":information_source: | User avatar changed",
+            color: 3447003,
+            description: oldMember+ " changed their avatar to " +oldMember.user.avatarURL + "." + "\n" + "\n *User ID*: " + oldMember.user.id
+          }});
         break;
     }
   }

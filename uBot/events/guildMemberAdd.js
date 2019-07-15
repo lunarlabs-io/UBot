@@ -16,7 +16,7 @@ exports.run  = async (member) => {
     log.send({embed: {
         title: ":information_source: | User joined",
         color: 3447003,
-        description: member+ " has joined the guild"
+        description: member+ " has joined the guild" + "\n" + "\n *User ID*: " + member.id
       }});
   }
 }
