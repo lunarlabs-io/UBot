@@ -77,7 +77,7 @@ exports.run = async (oldMember, newMember) => {
         log.send({embed: {
             title: ":information_source: | User update",
             color: 3447003,
-            description: newMember.user.username + "#" + newMember.user.discriminator + "\n" + "\n *User ID*: " + member.id
+            description: newMember.user.username + "#" + newMember.user.discriminator + "\n" + "\n *User ID*: " + oldMember.id
           }});
         break;
       case Changes.addedRole:
