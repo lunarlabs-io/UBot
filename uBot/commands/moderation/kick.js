@@ -1,4 +1,8 @@
-
+var r = require("rethinkdbdash")({
+  port: 28015,
+  host: "localhost",
+  db: "punishments"
+});
 const { Command } = require("discord.js-commando");
 var Discord = require("discord.js");
 class KickCommand extends Command {
@@ -37,6 +41,28 @@ class KickCommand extends Command {
       color: 3447003,
       description: "User has been kicked!"
     }});
+    r.tableList().contains(msg.guild.id)
+        .do(function(tableExists) {
+          return r.branch(
+              tableExists,
+              { table_created: 0 },
+              r.tableCreate(msg.guild.id)
+          )});
+    r.table(msg.guild.id)
+        .insert({
+          type: "kick",
+          userID: member.id,
+          moderator: msg.author.id,
+          reason: reason,
+          date: Date()
+        })
+        .run()
+        .then(function(response){
+          console.log('Success ',response);
+        })
+        .error(function(err){
+          console.log('error occurred ',err);
+        });
     const incidentschannel = msg.guild.channels.find(c => c.name === "ubot-logs");
     if (!incidentschannel) return msg.channel.send("Couldn't find ubot-logs channel.");
     if (incidentschannel) {

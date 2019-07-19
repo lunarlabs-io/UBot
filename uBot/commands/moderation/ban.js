@@ -1,4 +1,8 @@
-
+var r = require("rethinkdbdash")({
+  port: 28015,
+  host: "localhost",
+  db: "punishments"
+});
 const { Command } = require("discord.js-commando");
 var Discord = require("discord.js");
 class BanCommand extends Command {
@@ -41,6 +45,28 @@ class BanCommand extends Command {
           description: "User has been banned!",
           footer: "Command handled by UBot | Command initiated by ${msg.author}"
         }});
+        r.tableList().contains(msg.guild.id)
+            .do(function(tableExists) {
+              return r.branch(
+                  tableExists,
+                  { table_created: 0 },
+                  r.tableCreate(msg.guild.id)
+              )});
+        r.table(msg.guild.id)
+            .insert({
+              type: "ban",
+              userID: member.id,
+              moderator: msg.author.id,
+              reason: reason,
+              date: Date()
+            })
+            .run()
+            .then(function(response){
+              console.log('Success ',response);
+            })
+            .error(function(err){
+              console.log('error occurred ',err);
+            });
         const incidentschannel = msg.guild.channels.find(c => c.name === "ubot-logs");
         if (!incidentschannel) return msg.channel.send("Couldn't find ubot-logs channel.");
         if (incidentschannel) {

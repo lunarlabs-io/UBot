@@ -1,4 +1,8 @@
-
+var r = require("rethinkdbdash")({
+  port: 28015,
+  host: "localhost",
+  db: "punishments"
+});
 const { Command } = require("discord.js-commando");
 var Discord = require("discord.js");
 
@@ -18,10 +22,10 @@ class WarnCommand extends Command {
         type: "member",
         prompt: "Who do you want me to warn?"
       },
-      {
-        key: "reason",
-        type: "string",
-        prompt: "Why do you want me to warn them?"
+        {
+          key: "reason",
+          type: "string",
+          prompt: "Why do you want me to warn them?"
       }]
     });
   }
@@ -40,6 +44,28 @@ class WarnCommand extends Command {
           .addField("Server you were warned in", msg.guild.name)
           .addField("Reason of warn", reason);
         await member.send(warnembed);
+        r.tableList().contains(msg.guild.id)
+            .do(function(tableExists) {
+              return r.branch(
+                  tableExists,
+                  { table_created: 0 },
+                  r.tableCreate(msg.guild.id)
+              )});
+        r.table(msg.guild.id)
+            .insert({
+              type: "warn",
+              userID: member.id,
+              moderator: msg.author.id,
+              reason: reason,
+              date: Date()
+            })
+            .run()
+            .then(function(response){
+              console.log('Success ',response);
+            })
+            .error(function(err){
+              console.log('error occurred ',err);
+            });
         msg.channel.send({embed: {
           color: 3447003,
           title: ":white_check_mark:",
