@@ -54,8 +54,8 @@ class WarnCommand extends Command {
         r.table(msg.guild.id)
             .insert({
               type: "warn",
-              userID: member.id,
-              moderator: msg.author.id,
+              userID: member.id + " (" + member.user.username + "#" + member.user.discriminator + ")",
+              moderator: msg.author.id + " (" + msg.author.username + "#" + msg.author.discriminator + ")",
               reason: reason,
               date: Date()
             })
