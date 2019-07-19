@@ -10,7 +10,7 @@ class PGetCommand extends Command {
   constructor(client) {
     super (client, {
       name: "punishget",
-      aliases: [],
+      aliases: ['pget'],
       group: "moderation",
       memberName: "punishget",
       description: "Get a user's punishments.",
@@ -43,7 +43,7 @@ class PGetCommand extends Command {
         })
   }
   if (ptype === "Bans") {
-    r.table(msg.guild.id).filter(r.row('userID').eq(member.id + " (" + member.user.username + "#" + member.user.discriminator + ")") || r.row('type').eq('ban'))
+      r.table(msg.guild.id).filter(r.row('userID').eq(member.id + " (" + member.user.username + "#" + member.user.discriminator + ")").and(r.row("type").eq('ban')))
         .run()
         .then(function (response) {
           console.log(response);
@@ -54,7 +54,7 @@ class PGetCommand extends Command {
         })
   }
     if (ptype === "Warns") {
-      r.table(msg.guild.id).filter(r.row('userID').eq(member.id + " (" + member.user.username + "#" + member.user.discriminator + ")") || r.row('type').eq('warn'))
+        r.table(msg.guild.id).filter(r.row('userID').eq(member.id + " (" + member.user.username + "#" + member.user.discriminator + ")").and(r.row("type").eq('warn')))
           .run()
           .then(function (response) {
             console.log(response);
@@ -65,7 +65,7 @@ class PGetCommand extends Command {
           })
     }
       if (ptype === "Kicks") {
-        r.table(msg.guild.id).filter(r.row('userID').eq(member.id + " (" + member.user.username + "#" + member.user.discriminator + ")") || r.row('type').eq('kick'))
+          r.table(msg.guild.id).filter(r.row('userID').eq(member.id + " (" + member.user.username + "#" + member.user.discriminator + ")").and(r.row("type").eq('kick')))
             .run()
             .then(function (response) {
               console.log(response);
