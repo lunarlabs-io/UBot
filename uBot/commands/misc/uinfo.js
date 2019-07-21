@@ -14,7 +14,7 @@ class UInfoCommand extends Command {
         key: "member",
         label: "user",
         type: "member",
-        prompt: "Mention who do you want see, master!"
+        prompt: "Mention who's info you want to see, master!"
       }]
     });
   }
