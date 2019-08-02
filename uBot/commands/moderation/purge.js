@@ -32,4 +32,6 @@ class PurgeCommand extends Command {
     });
   }
 }
+module.exports = PurgeCommand;
+
 
