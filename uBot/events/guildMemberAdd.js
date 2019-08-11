@@ -1,5 +1,5 @@
 exports.run  = async (member) => {
-  var guild = member.guild
+  var guild = member.guild;
 
   // let welcomeMessage = client.settings.get(member.guild.id, "welcomeMessage");
   // welcomeMessage = welcomeMessage.replace("{{user}}", member.user.tag);
@@ -8,7 +8,7 @@ exports.run  = async (member) => {
   //   .send(welcomeMessage)
   // // eslint-disable-next-line no-console
   //   .catch(console.error);
-  console.log("[" + member.guild.name + "][JOIN] " + member.user.username + "#" + member.user.discriminator);
+//  console.log("[" + member.guild.name + "][JOIN] " + member.user.username + "#" + member.user.discriminator);
 
   //post in the guild's log channel
   var log = member.guild.channels.find(c => c.name === "ubot-logs");

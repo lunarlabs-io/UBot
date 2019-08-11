@@ -2,8 +2,8 @@ exports.run = async (msg) => {
  
 
   //log to console
-  console.log("[" + msg.guild.name + "][#" + msg.channel.name + "][DELMSG] " + msg.author.username +
-            "#" + msg.author.discriminator + ": " + formatConsoleMessage(msg));
+//  console.log("[" + msg.guild.name + "][#" + msg.channel.name + "][DELMSG] " + msg.author.username +
+//            "#" + msg.author.discriminator + ": " + formatConsoleMessage(msg));
 
   //post in the guild's log channel
   var log = msg.guild.channels.find(c => c.name === "ubot-logs");

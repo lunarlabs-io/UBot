@@ -7,7 +7,9 @@ exports.run  = async (guild, member) => {
   //   .send(welcomeMessage)
   // // eslint-disable-next-line no-console
   //   .catch(console.error);
-  console.log("[" + guild.name + "][BANNED] " + member.username + "#" + member.discriminator);
+//  console.log("[" + guild.name + "][BANNED] " + "\n" + "User: " + member.username + "#" + member.discriminator
+//      + "\n User ID: " + member.id
+//      + "\n Server ID:" + guild.id);
   
   //post in the guild's log channel
   var log = guild.channels.find(c => c.name === "ubot-logs");

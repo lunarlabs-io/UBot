@@ -42,6 +42,7 @@ exports.run = async (oldMember, newMember) => {
     change = Changes.avatar;
 
   //log to console
+  /*
   switch (change) {
     case Changes.unknown:
       console.log("[" + guild.name + "][UPDUSR] " + newMember.user.username + "#" + newMember.user.discriminator);
@@ -67,7 +68,7 @@ exports.run = async (oldMember, newMember) => {
       console.log("[" + guild.name + "][UPDAVT] " + newMember.user.username + "#" + newMember.user.discriminator);
       break;
   }
-
+*/
 
   //post in the guild's log channel
   var log = guild.channels.find(c => c.name === "ubot-logs");
