@@ -77,7 +77,8 @@ class BanCommand extends Command {
             .addField("User who was banned", `${member} with ID: ${member.id}`)
             .addField("Banned by user", `${msg.author} with ID: ${msg.author.id}`)
             .addField("Time the user was banned at", msg.createdAt)
-            .addField("Reason of ban", reason);
+            .addField("Reason of ban", reason)
+            .addField("This user's previous punishments in this server", '[link to the API](https://ub-api.protogen.dev/punish?server_id=' + msg.guild.id + "&" + "user_id=" + member.id + ")");
           incidentschannel.send(banEmbed);
         }
       }}}}

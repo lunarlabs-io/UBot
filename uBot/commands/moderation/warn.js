@@ -26,11 +26,11 @@ class WarnCommand extends Command {
           key: "reason",
           type: "string",
           prompt: "Why do you want me to warn them?"
-      }]
+        }]
     });
   }
   async run(msg, { member, reason}) {
-    if (member) {    
+    if (member) {
       if (member || reason) {
         let executo = msg.author.id;
         let execut = msg.guild.members.get(executo);
@@ -38,11 +38,11 @@ class WarnCommand extends Command {
         let highrolem = member.highestRole.position;
         if (highrolea < highrolem) return msg.reply("You can't warn someone with a higher role than yours...");
         const warnembed = new Discord.RichEmbed()
-          .setDescription("You have been warned!")
-          .setThumbnail(member.avatarURL)
-          .setColor("#15f153")
-          .addField("Server you were warned in", msg.guild.name)
-          .addField("Reason of warn", reason);
+            .setDescription("You have been warned!")
+            .setThumbnail(member.avatarURL)
+            .setColor("#15f153")
+            .addField("Server you were warned in", msg.guild.name)
+            .addField("Reason of warn", reason);
         await member.send(warnembed);
         r.tableList().contains(msg.guild.id)
             .do(function(tableExists) {
@@ -67,23 +67,24 @@ class WarnCommand extends Command {
               console.log('error occurred ',err);
             });
         msg.channel.send({embed: {
-          color: 3447003,
-          title: ":white_check_mark:",
-          description: "User has been warned!",
-          footer: "Command handled by UBot | Command initiated by ${msg.author}"
-        }
-      });
+            color: 3447003,
+            title: ":white_check_mark:",
+            description: "User has been warned!",
+            footer: "Command handled by UBot | Command initiated by ${msg.author}"
+          }
+        });
         const incidentschannel = msg.guild.channels.find(c => c.name === "ubot-logs");
         if (!incidentschannel) return msg.channel.send("Couldn't find ubot-logs channel.");
         if (incidentschannel) {
           const warnEmbed2 = new Discord.RichEmbed()
-            .setDescription("A user has been warned")
-            .setThumbnail(member.avatarURL)
-            .setColor("#15f153")
-            .addField("User who was warned", `${member} with ID: ${member.id}`)
-            .addField("Warned by user", `${msg.author} with ID: ${msg.author.id}`)
-            .addField("Time the user was warned at", msg.createdAt)
-            .addField("Reason of warn", reason);
+              .setDescription("A user has been warned")
+              .setThumbnail(member.avatarURL)
+              .setColor("#15f153")
+              .addField("User who was warned", `${member} with ID: ${member.id}`)
+              .addField("Warned by user", `${msg.author} with ID: ${msg.author.id}`)
+              .addField("Time the user was warned at", msg.createdAt)
+              .addField("Reason of warn", reason)
+              .addField("This user's previous punishments in this server", '[link to the API](https://ub-api.protogen.dev/punish?server_id=' + msg.guild.id + "&" + "user_id=" + member.id + ")");
           incidentschannel.send(warnEmbed2);
         }
       }

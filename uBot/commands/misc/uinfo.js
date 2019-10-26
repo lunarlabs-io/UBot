@@ -29,6 +29,7 @@ class UInfoCommand extends Command {
       .setColor(0xFF0090)
       .addField("User ID", user.id)
       .addField("Joined at", member.joinedAt)
+      .addField("Created at", member.user.createdAt)
       .addField("Playing", user.presence.game ? user.presence.game.name : "None")
       .addField("Roles in this server", "```"+ member.roles.map(roles => roles.name).join(", ") +"```")
       .addField("Status", userStats);
