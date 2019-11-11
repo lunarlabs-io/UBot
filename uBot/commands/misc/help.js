@@ -94,7 +94,7 @@ module.exports = class HelpCommand extends Command {
       } catch (e) { msg.channel.send("ERR!"); }
     } else {
       var dm = msg.client.registry.commands.find("name", args.command);
-      if (!dm) return msg.channel.send("Sorry, i can't found that command! The name is probably incorrect.");
+      if (!dm) return msg.channel.send("Sorry, I can't find that command! The name is probably incorrect.");
       var aliases = dm.aliases;
       var examples = dm.examples;
       var permissions = dm.userPermissions;
