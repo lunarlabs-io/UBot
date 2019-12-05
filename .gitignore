@@ -1,3 +1,4 @@
 .push.settings.jsonc
 uBot/.env
 node_modules
+rethinkdb_data
