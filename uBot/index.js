@@ -6,8 +6,8 @@ console.log("Loading .env file for token");
 require("dotenv").config({path:"./.env"});
 console.log("Loading uBot client...");
 var client = new Client({
-  owner: "251788826232619008",
-  commandPrefix: "u!",
+  owner: process.env.OWNER_ID,
+  commandPrefix: process.env.PREFIX,
   unknownCommandResponse: false,
   disableEveryone: true,
   autoReconnect: true,
