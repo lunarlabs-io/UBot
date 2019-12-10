@@ -1,7 +1,8 @@
+require("dotenv").config({path:"./.env"});
 var r = require("rethinkdbdash")({
-  port: 28015,
-  host: "localhost",
-  db: "punishments"
+    port: process.env.RETHINK_PORT,
+    host: process.env.RETHINK_HOST,
+    db: process.env.RETHINK_DB
 });
 const { Command } = require("discord.js-commando");
 var Discord = require("discord.js");
