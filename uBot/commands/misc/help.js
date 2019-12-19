@@ -112,6 +112,8 @@ module.exports = class HelpCommand extends Command {
         permissions = "Everyone can use this command without extra permissions";
       } else {
         permissions = permissions.join(", ");
+      } if (!permissions || dm.ownerOnly === true) {
+        permissions = "Only the owner can use this command."
       }
       var embed2 = new RichEmbed ()
         .setTitle("Help for command "+ dm.name)
