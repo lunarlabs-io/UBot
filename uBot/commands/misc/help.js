@@ -82,7 +82,7 @@ module.exports = class HelpCommand extends Command {
                   break;
                 case "🐈":
                   help.delete();
-                  msg.author.send("One day, a small girl just disappear from the eyes of his mom, fallin' into the nothing.\nLost.\nAlone.\nYou know who is him?\nWanna know **who** is him?\nLook behind you.");
+                  msg.author.send("One day, a small girl just disappear from the eyes of his mom, fallin' into the nothing.\nLost.\nAlone.\nYou know who is him?\nWanna know **who** is him?\nLook behind you."); // I've seen this code snippet many times but I still don't understand what the meaning of the message is
                   collector.stop();
                   break;
               }
@@ -101,7 +101,7 @@ module.exports = class HelpCommand extends Command {
       if (aliases[0]) {
         aliases = aliases.join(", ");
       } else {
-        aliases = "This command don't has any aliases";
+        aliases = "This command doesn't has any aliases";
       }
       if (!examples) {
         examples = "No examples found";
