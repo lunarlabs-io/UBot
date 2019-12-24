@@ -2,3 +2,4 @@
 uBot/.env
 node_modules
 rethinkdb_data
+package-lock.json
