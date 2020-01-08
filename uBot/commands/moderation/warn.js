@@ -84,7 +84,7 @@ class WarnCommand extends Command {
               .addField("Warned by user", `${msg.author} with ID: ${msg.author.id}`)
               .addField("Time the user was warned at", msg.createdAt)
               .addField("Reason of warn", reason)
-              .addField("This user's previous punishments in this server", '[link to the API](https://ub-api.protogen.dev/punish?server_id=' + msg.guild.id + "&" + "user_id=" + member.id + ")");
+              .addField("This user's previous punishments in this server", '[link to the API](https://api.ubot.protogen.dev/punish?server_id=' + msg.guild.id + "&" + "user_id=" + member.id + ")");
           incidentschannel.send(warnEmbed2);
         }
       }
