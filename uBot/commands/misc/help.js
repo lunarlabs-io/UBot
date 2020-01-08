@@ -82,7 +82,7 @@ module.exports = class HelpCommand extends Command {
                   break;
                 case "🐈":
                   help.delete();
-                  msg.author.send("One day, a small girl just disappear from the eyes of his mom, fallin' into the nothing.\nLost.\nAlone.\nYou know who is him?\nWanna know **who** is him?\nLook behind you.");
+                  msg.author.send("One day, a small girl just disappear from the eyes of his mom, fallin' into the nothing.\nLost.\nAlone.\nYou know who is him?\nWanna know **who** is him?\nLook behind you."); // I've seen this code snippet many times but I still don't understand what the meaning of the message is
                   collector.stop();
                   break;
               }
@@ -94,14 +94,14 @@ module.exports = class HelpCommand extends Command {
       } catch (e) { msg.channel.send("ERR!"); }
     } else {
       var dm = msg.client.registry.commands.find("name", args.command);
-      if (!dm) return msg.channel.send("Sorry, i can't found that command! The name is probably incorrect.");
+      if (!dm) return msg.channel.send("Sorry, I can't find that command! The name is probably incorrect.");
       var aliases = dm.aliases;
       var examples = dm.examples;
       var permissions = dm.userPermissions;
       if (aliases[0]) {
         aliases = aliases.join(", ");
       } else {
-        aliases = "This command don't has any aliases";
+        aliases = "This command doesn't has any aliases";
       }
       if (!examples) {
         examples = "No examples found";
@@ -112,6 +112,8 @@ module.exports = class HelpCommand extends Command {
         permissions = "Everyone can use this command without extra permissions";
       } else {
         permissions = permissions.join(", ");
+      } if (!permissions || dm.ownerOnly === true) {
+        permissions = "Only the owner can use this command."
       }
       var embed2 = new RichEmbed ()
         .setTitle("Help for command "+ dm.name)
