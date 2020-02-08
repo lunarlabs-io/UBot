@@ -14,7 +14,8 @@ class StatsCommand extends Command {
     });
   }
   async run(msg) {
-    var embed = new RichEmbed()
+    let owner = this.client.users.get(process.env.OWNER_ID);
+    let embed = new RichEmbed()
       .setTitle("UBot Stats")
       .setThumbnail(this.client.user.avatarURL)
       .setColor(0xFF0090)
@@ -22,7 +23,7 @@ class StatsCommand extends Command {
       .addField("User amount", this.client.users.size)
       .addField("Discord.JS Version", Discord.version)
       .addField("NodeJS Version", process.versions.node)
-      .addField("Bot Owner", "Uni#0001");
+      .addField("Bot Owner", owner.username + "#" + owner.discriminator);
     return msg.channel.send(embed);
   }
 }
