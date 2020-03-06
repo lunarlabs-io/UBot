@@ -29,6 +29,18 @@ class PurgeCommand extends Command {
         messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
       }
       msg.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+      const incidentschannel = msg.guild.channels.find(c => c.name === "ubot-logs");
+      if (!incidentschannel) return msg.channel.send("Couldn't find ubot-logs channel.");
+      if (incidentschannel) {
+        const purgeEmbed = new Discord.RichEmbed()
+            .setDescription("A user has purged messages")
+            .setThumbnail(msg.author.avatarURL)
+            .setColor("#15f153")
+            .addField("User", `${msg.author} with ID: ${msg.author.id}`)
+            .addField("Amount", amount)
+            .addField("Channel", msg.channel)
+        incidentschannel.send(purgeEmbed);
+      }
     });
   }
 }
