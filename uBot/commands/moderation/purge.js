@@ -6,7 +6,7 @@ class PurgeCommand extends Command {
     super (client, {
       name: "purge",
       aliases: ["msgclean"],
-      group: "misc",
+      group: "moderation",
       memberName: "purge",
       userPermissions: ["MANAGE_MESSAGES"],
       description: "purge messages",
@@ -14,7 +14,8 @@ class PurgeCommand extends Command {
       
     });
   }
-  async run(msg) {    
+  async run(msg) { 
+    const Discord = require("discord.js")
     const user = msg.mentions.users.first();
     // Parse Amount
     const amount = parseInt(msg.content.split(" ")[1]) ? parseInt(msg.content.split(" ")[1]) : parseInt(msg.content.split(" ")[2]);
