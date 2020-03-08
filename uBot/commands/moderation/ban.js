@@ -80,6 +80,7 @@ class BanCommand extends Command {
             .addField("Time the user was banned at", msg.createdAt)
             .addField("Reason of ban", reason)
              .addField("This user's previous punishments in this server", '[link to the API](' + process.env.API_ENDPOINT + '/punish?server_id=' + msg.guild.id + "&" + "user_id=" + member.id + ")");
+                    incidentschannel.send(banEmbed);
         }
       }}}}
 module.exports = BanCommand;
