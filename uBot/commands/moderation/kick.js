@@ -75,8 +75,7 @@ class KickCommand extends Command {
         .addField("Kicked by user", `${msg.author} with ID: ${msg.author.id}`)
         .addField("Time the user was kicked at", msg.createdAt)
         .addField("Reason of kick", reason)
-          .addField("This user's previous punishments in this server", '[link to the API](https://api.ubot.protogen.dev/punish?server_id=' + msg.guild.id + "&" + "user_id=" + member.id + ")");
-      incidentschannel.send(kickEmbed)
+            .addField("This user's previous punishments in this server", '[link to the API](' + process.env.API_ENDPOINT + '/punish?server_id=' + msg.guild.id + "&" + "user_id=" + member.id + ")");      incidentschannel.send(kickEmbed)
         .catch(() => msg.channel.send({embed: {
           color: 3447003,
           title: ":x:",
