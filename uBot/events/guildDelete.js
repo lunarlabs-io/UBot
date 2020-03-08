@@ -1,8 +1,8 @@
 exports.run = async (guild) => {
   var r = require("rethinkdbdash")({
-    port: 28015,
-    host: "localhost",
-    db: "punishments"
+    port: process.env.RETHINK_PORT,
+    host: process.env.RETHINK_HOST,
+    db: process.env.RETHINK_DB
   });
   const now = Date.now();
   r.tableDrop(guild.id);
