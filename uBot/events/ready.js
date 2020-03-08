@@ -1,6 +1,6 @@
 var r = require("rethinkdbdash")({
-  port: 28015,
-  host: "localhost",
+  port: process.env.RETHINK_PORT,
+  host: process.env.RETHINK_HOST,
   db: "serversettings"
 });
 r.dbList().contains("serversettings")
