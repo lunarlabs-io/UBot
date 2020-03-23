@@ -9,6 +9,7 @@
     "author": "Uni",
     "dependencies": {
         "better-sqlite-pool": "^0.2.2",
+        "common-tags": "^1.8.0",
         "discord.io": "github:woor/discord.io#gateway_v6",
         "discord.js": "^11.5.1",
         "discord.js-commando": "^0.10.0",
@@ -19,7 +20,7 @@
         "rethinkdbdash": "^2.3.31",
         "safe-buffer": "^5.1.2",
         "snekfetch": "^4.0.4",
-        "sqlite": "^3.0.3",
+        "sqlite": "^3.0.4",
         "winston": "^3.0.0"
     },
     "devDependencies": {

@@ -3,3 +3,5 @@ uBot/.env
 node_modules
 rethinkdb_data
 package-lock.json
+uBot/settings.sqlite3
+uBot/database.sqlite3
