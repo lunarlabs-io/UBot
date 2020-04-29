@@ -1,0 +1,16 @@
+{
+  "name": "ubot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord-akairo": "^8.0.0",
+    "discord.js": "^12.2.0",
+    "sqlite": "^3.0.3"
+  }
+}
