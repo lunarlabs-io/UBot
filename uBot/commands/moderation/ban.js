@@ -48,7 +48,7 @@ class BanCommand extends Command {
           description: "User has been banned!",
           footer: "Command handled by UBot | Command initiated by ${msg.author}"
         }});
-        var sql = "INSERT INTO bans (userID, serverID, moderator, reason, date) VALUES (" + `'${member.id}'`+ "," + `'${msg.author.id}'` + ',' + `'${reason}'` + ', ' + `'${Date()}'` + ")";
+        var sql = "INSERT INTO bans (userID, serverID, moderator, reason, date) VALUES (" + `'${member.id}'`+ "," + `'${msg.guild.id}'` + ',' +  `'${msg.author.id}'`+ "," + `'${reason}'` + ', ' + `'${Date()}'` + ")";
         global.con.query(sql, function (err, result) {
           if (err) throw err;
           console.log("[Ban] 1 record inserted");
