@@ -6,7 +6,7 @@ class AvatarCommand extends Command {
     super (client, {
       name: "avatar",
       aliases: [],
-      group: "fun",
+      group: "misc",
       memberName: "avatar",
       description: "Look up a users Avatar",
       ownerOnly: false,
